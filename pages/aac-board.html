@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AAC Board - All in One</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      background-color: #2c3e50;
+      padding: 1rem 2rem;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 2rem;
+      text-align: center;
+      background: #2980b9;
+      color: white;
+    }
+
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .category-buttons button {
+      padding: 0.7rem 1.2rem;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .category-buttons button:hover {
+      background-color: #2980b9;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .aac-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      background-color: white;
+      border: 2px solid #2980b9;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .aac-button:hover {
+      background-color: #ecf5ff;
+    }
+
+    .aac-button img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+    
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div><strong>AAC Empower</strong></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="aac-app.html">Back to App</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Communication Board</h1>
+    <p>Choose a category and tap a symbol to hear it spoken aloud.</p>
+  </section>
+
+  <div style="text-align: center; margin-bottom: 2rem;">
+  <a href="aac-app.html" style="text-decoration: none;">
+    <button style="
+      padding: 0.6rem 1.2rem;
+      background-color: #7f8c8d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    ">⬅️ Back</button>
+  </a>
+</div>
+
+
+  <!-- Category Buttons -->
+  <div class="category-buttons">
+    <button onclick="showCategory('food')">🍔 Food</button>
+    <button onclick="showCategory('feelings')">😊 Feelings</button>
+    <button onclick="showCategory('needs')">🛠️ Basic Needs</button>
+  </div>
+  
+
+  <!-- Symbol Grid -->
+  <div class="grid" id="symbolGrid"></div>
+
+  <footer>
+    <p>&copy; 2025 AAC Empower | Capstone Project</p>
+  </footer>
+
+  <script>
+    const categories = {
+      food: [
+        { word: "Eat", icon: "https://img.icons8.com/color/96/hamburger.png" },
+        { word: "Drink", icon: "https://img.icons8.com/color/96/water-bottle.png" },
+        { word: "Apple", icon: "https://img.icons8.com/color/96/apple.png" },
+        { word: "Banana", icon: "https://img.icons8.com/color/96/banana.png" }
+      ],
+      feelings: [
+        { word: "Happy", icon: "https://img.icons8.com/color/96/happy.png" },
+        { word: "Sad", icon: "https://img.icons8.com/color/96/sad.png" },
+        { word: "Angry", icon: "https://img.icons8.com/color/96/angry.png" },
+        { word: "Scared", icon: "https://img.icons8.com/color/96/scared.png" }
+      ],
+      needs: [
+        { word: "Help", icon: "https://img.icons8.com/color/96/help.png" },
+        { word: "Bathroom", icon: "https://img.icons8.com/color/96/toilet.png" },
+        { word: "Yes", icon: "https://img.icons8.com/color/96/checked-checkbox.png" },
+        { word: "No", icon: "https://img.icons8.com/color/96/delete-sign.png" }
+      ]
+    };
+
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+
+    function showCategory(category) {
+      const grid = document.getElementById("symbolGrid");
+      grid.innerHTML = "";
+
+      categories[category].forEach(item => {
+        const btn = document.createElement("div");
+        btn.className = "aac-button";
+        btn.onclick = () => speak(item.word);
+        btn.innerHTML = `
+          <img src="${item.icon}" alt="${item.word}" />
+          <span>${item.word}</span>
+        `;
+        grid.appendChild(btn);
+      });
+    }
+
+    // Show default category
+    showCategory("food");
+  </script>
+
+</body>
+</html>

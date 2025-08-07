@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AAC Empower – Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      background-color: #2c3e50;
+      padding: 1rem 2rem;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #2980b9;
+      color: white;
+    }
+
+    .hero .btn {
+      padding: 0.8rem 1.5rem;
+      background: white;
+      color: #2980b9;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 1rem;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .solutions-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+      width: 300px;
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .btn-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #2980b9;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-link:hover {
+      background-color: #1c5984;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">AAC Empower</div>
+      <ul class="nav-links">
+        <li><a href="#">Solutions</a></li>
+        <li><a href="pages/aac-app.html">AAC App</a></li>
+        <li><a href="pages/sign-dictionary.html">Sign Dictionary</a></li>
+        <li><a href="pages/board-generator.html">Board Generator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Breaking Communication Barriers</h1>
+    <p>Helping individuals with disabilities express themselves through innovative digital tools.</p>
+    <a href="#solutions" class="btn">Explore Solutions</a>
+  </section>
+
+  <section id="solutions" class="solutions-section">
+    <h2>Our Solutions</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>AAC App</h3>
+        <p>Assistive tool using images and voice output to help non-verbal users communicate.</p>
+        <a href="pages/aac-app.html" class="btn-link">Open App</a>
+      </div>
+      <div class="card">
+        <h3>Sign Language Dictionary</h3>
+        <p>A searchable, visual-based tool for learning and referencing sign language easily.</p>
+        <a href="pages/sign-dictionary.html" class="btn-link">View Dictionary</a>
+      </div>
+      <div class="card">
+        <h3>Communication Board Generator</h3>
+        <p>Create printable or digital boards for structured, personalized communication.</p>
+        <a href="pages/board-generator.html" class="btn-link">Generate Board</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 AAC Empower Team | Capstone Project</p>
+  </footer>
+
+</body>
+</html>
